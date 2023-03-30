@@ -1,12 +1,17 @@
 import orderModel from '../persistence/OrderModel'
 import { Order } from '../persistence/OrderModel'
-
+import {Types} from 'mongoose'
 let instance:any=null
 
 
 class OrderService{
     
     async get(id:string) {
+      const valid= Types.ObjectId.isValid(id)
+
+      if(!valid){
+        return Promise.resolve(null)
+      }
         return await orderModel.find({ _id: id })
       }
     

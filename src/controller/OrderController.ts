@@ -11,6 +11,7 @@ class OrderController {
 
   async getList(req:Request, res:Response) {
     const order = await OrderService.getInstance().list();
+    res.json(order)
   }
 
   /**

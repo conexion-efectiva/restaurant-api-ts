@@ -10,8 +10,7 @@ interface Product {
 
 const productSchema = new Schema<Product>({
     productID: { type: String, required: true},
-    name: { type: String, required: true},
-    price: { type: Number, required: true}
+   
 })
 
 export interface Order{

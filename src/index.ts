@@ -16,13 +16,17 @@ import authRoutes from'./routes/authRoutes'
 import orderRoutes from'./routes/orderRoutes'
 async function main() {
    await mongoose.connect(process.env.DB_MONGO as string)
-  }
+   console.log('Base de datos conectada')
+ 
   initializeAuthentication() 
   app.use('/api',orderRoutes)
  app.use('/api', authRoutes)
  app.use('/api', userRoutes)
  app.use('/api', productRoutes)
- main()
+ 
   app.listen(port, () => {
     console.log('App listening on port ', port)
   }) 
+
+}
+main()
