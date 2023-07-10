@@ -2,16 +2,9 @@
 import mongoose from 'mongoose'
 import { Schema, Types } from 'mongoose';
 
-interface Product {
-    productID: string;
-    name: string;
-    price: number;
+interface Product  {
+    productId: Types.ObjectId;
 }
-
-const productSchema = new Schema<Product>({
-    productID: { type: String, required: true},
-   
-})
 
 export interface Order{
     userId: string,
@@ -19,7 +12,7 @@ export interface Order{
     deliverDate: string,
     status: string,  
     orderType: string,
-    product:Product,
+    product: Product,
     _id:Types.ObjectId
 }
 
@@ -29,9 +22,9 @@ const OrdersSchema = new Schema<Order>({
     deliverDate: {type:String,required:true},
     status: {type:String,required:true},  
     orderType: {type:String,required:true},
-    product:{type:Array,required:true},
+    product: {type: Array,required:true},
 })
 
-const ordersModel = mongoose.model('orden', OrdersSchema)
+const ordersModel = mongoose.model('orders', OrdersSchema)
 
 export default ordersModel

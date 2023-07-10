@@ -3,9 +3,7 @@ import joi from 'joi'
 
 const ProductsSchema = joi.object({
  
-  productID:joi.string().required(),
-  name: joi.string().required(),
-  price:joi.number().required(),
+  productId:joi.string().required(),
   
 })
 const ordenSchema = joi.object({
